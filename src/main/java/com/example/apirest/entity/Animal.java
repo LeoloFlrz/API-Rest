@@ -1,6 +1,8 @@
 package com.example.apirest.entity;
 
+
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLUpdate;
 import org.springframework.boot.context.properties.bind.Name;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.annotation.Id;
@@ -22,6 +24,7 @@ public class Animal implements Serializable{
     }
 
     public Animal(String name, String type) {
+        super();
         this.name = name;
         this.type = type;
     }
@@ -49,6 +52,7 @@ public class Animal implements Serializable{
     public void setType(String type) {
         this.type = type;
     }
+
 
     public static Animal saveAnimal(EntityManager entityManager, String name, String type) {
         Animal newAnimal = new Animal(name, type);
